@@ -1,0 +1,2 @@
+# index
+A JavaScript project
