@@ -1,0 +1,24 @@
+{
+  "name": "pictureapi",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "axis": "^1.0.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "fetch": "^1.1.0",
+    "helmet": "^4.6.0",
+    "http-errors": "~1.6.3",
+    "jsdom": "^18.1.0",
+    "morgan": "~1.9.1",
+    "mssql": "^7.3.0",
+    "node-blob": "^0.0.2",
+    "node-fetch": "^2.6.6"
+  }
+}
