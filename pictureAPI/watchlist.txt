@@ -1,0 +1,62 @@
+  // //when api fails or respone not available
+    // .catch((error)=>{
+    //     console.log(error.data)
+    // })
+//   for(let i=0;i<5;i++){
+
+//   setTimeout(()=>(fetch('https://dog.ceo/api/breeds/image/random')
+//   .then(response => response.json())
+//   .then(result=> {
+//     res.send(result)
+//     let data1=JSON.stringify(result)
+//     apiData.push(result.message)
+//     console.log(apiData)
+//  })),10000)
+// // }setTimeout(()=>(console.log(apiData)),10000)
+// }
+
+
+
+
+
+ //console.log(reqId)
+  // data.push(apiData.splice(reqId,1));
+  // setTimeout(()=>(console.log(data)),10000)
+  // var message= data.id;
+
+
+
+      // //when api fails or respone not available
+    // .catch((error)=>{
+    //     console.log(error.data)
+    // })
+//   for(let i=0;i<5;i++){
+
+//   setTimeout(()=>(fetch('https://dog.ceo/api/breeds/image/random')
+//   .then(response => response.json())
+//   .then(result=> {
+//     res.send(result)
+//     let data1=JSON.stringify(result)
+//     apiData.push(result.message)
+//     console.log(apiData)
+//  })),10000)
+// // }setTimeout(()=>(console.log(apiData)),10000)
+// }
+
+
+// const addToWatchList=(req,res)=>
+// {
+//     if(apiData.length!=0)
+//   {
+//     console.log(reqId)
+//     data= apiData.splice(reqId,1);
+//     console.log(data.message)
+//     watchList.push({id:++ counts,url:data.message});
+//     console.log(  watchList)
+//     res.send({message: "Success"})
+//    }else{
+//      console.log("Data Not Available")
+//     res.send({error: "Failed Data Not Available"})
+//    }
+
+// }
