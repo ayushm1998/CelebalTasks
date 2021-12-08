@@ -1,5 +1,5 @@
 
-  var express = require('express');
+var express = require('express');
 const { diskStorage } = require('multer');
 var router = express.Router();
 const path =  require ('path')
@@ -29,7 +29,29 @@ router.get("/",(req,res)=>{
   res.render("index")
 })
 
-router.post("/",upload.single("sampleFile"),(req,res)=>
+
+/**
+   * @swagger
+   * /users/:
+   *  post:
+   *      requestBody:
+   *          required: true
+   *          content:
+   *              multipart/form-data:
+   *                schema:
+   *                  type: object
+   *                  properties:
+   *                    file:
+   *                      type:   string
+   *                      format: binary                      
+   *      responses:
+   *          200:
+   *              description: Uploaded Successfully          
+   */
+
+
+
+router.post("/",upload.single("file"),(req,res)=>
 {
   //console.log(req.samplefile)
   res.send("Image Uploaded")

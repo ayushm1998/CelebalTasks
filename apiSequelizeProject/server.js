@@ -4,6 +4,29 @@ const bodyParser =require("body-parser")
 
 const app = express();
 
+const swaggerJSDoc= require('swagger-jsdoc')
+const swaggerUi= require('swagger-ui-express')
+
+const options={
+  definition:{
+    openapi: '3.0.0',
+    info:{
+      title: "NOde JS API Project ",
+      version:"1.0.0" 
+    },
+    servers:[{ 
+      url: "http://localhost:8080"
+    }]
+    
+  },
+  apis:['routes/tutorial.route.js']
+
+
+}
+
+const swaggerSpec= swaggerJSDoc(options)
+app.use('/api-docs',swaggerUi.serve, swaggerUi.setup(swaggerSpec))
+
 // var corsOptions = {
 //   origin: "http://localhost:8081"
 // };
