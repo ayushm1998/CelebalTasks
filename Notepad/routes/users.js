@@ -1,25 +1,24 @@
-var express = require('express');
-var router = express.Router();
-var apiController = require('../controllers/users')
-//var verifyToken= require('../controllers/users')
-var jwt = require('jsonwebtoken')
+const express = require("express");
+const router = express.Router();
+const apiController = require("../controllers/users");
+const jwt = require("jsonwebtoken");
+const cache = require("../cache.js");
 
+router.post("/create", apiController.createNote);
 
-router.post('/create',apiController.createNote)
+router.get("/show/:id", cache(5), apiController.getNotesByName);
 
-router.get('/show/:id',apiController.getNotesByName)
+//router.get('/showbyID/:id',cache(5),apiController.getNotesByUId)
 
-router.get('/showbyID/:id',apiController.getNotesByUId)
+router.put("/update/:id", apiController.updateNotes);
 
-router.put('/update/:id',apiController.updateNotes)
+router.put("/renew/:id", apiController.renewNotes);
 
-router.put('/renew/:id', apiController.renewNotes)
+router.delete("/delete/:id", apiController.deleteNotes);
 
-router.delete('/delete/:id',apiController.deleteNotes)
+router.get("/getAllNotes", cache(10), apiController.getAllNotes);
 
-router.get('/getAllNotes',apiController.getAllNotes)
-
-router.post('/login', apiController.login)
+router.post("/login", apiController.login);
 
 /**
  * @swagger
@@ -30,39 +29,35 @@ router.post('/login', apiController.login)
  *        - bearerAuth: []
  *      responses:
  *        '200':
- *          description: Token Received     
+ *          description: Token Received
  */
 
+/**
+ * @swagger
+ * /users/loginjwt/:
+ *  post:
+ *      summary: This api is used to login
+ *      description: This api is used to check if get is working
+ *      responses:
+ *          200:
+ *              description: Added Successfully
+ *          403:
+ *              description: Error
+ */
+
+router.post("/loginjwt", apiController.verifyToken, apiController.loginjwt);
 
 /**
-   * @swagger
-   * /users/loginjwt/:
-   *  post:
-   *      summary: This api is used to login
-   *      description: This api is used to check if get is working                    
-   *      responses:
-   *          200:
-   *              description: Added Successfully
-   *          403:
-   *              description: Error          
-   */
+ * @swagger
+ * /users//getAllNotes:
+ *  get:
+ *      summary: This api is used to login
+ *      description: This api is used to check if get is working
+ *      responses:
+ *          200:
+ *              description: Added Successfully
+ */
 
-router.post('/loginjwt',apiController.verifyToken, apiController.loginjwt)
-
-/**
-   * @swagger
-   * /users//getAllNotes:
-   *  get:
-   *      summary: This api is used to login
-   *      description: This api is used to check if get is working                    
-   *      responses:
-   *          200:
-   *              description: Added Successfully         
-   */
-
-router.post('/',apiController.user)
+router.post("/", apiController.user);
 
 module.exports = router;
-
-
-

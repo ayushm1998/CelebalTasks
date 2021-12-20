@@ -84,8 +84,9 @@ app.get('/download/:id',(req,res,next)=>{
       })
       )
       })
-    
 
 db.sequelize.sync();
+
+app.listen(3000)
 
 module.exports = app;
