@@ -1,0 +1,25 @@
+//Factory
+import Motorvehicle from './Motorvehicle';
+import Aircraft from './Aircraf';
+import Railvehicle from './Railvehicle';
+
+//Without Design
+const VehicleFactory = (type, make, model, year) => {
+  if (type === car) {
+    return new Motorvehicle('car', make, model, year);
+  } else if (type === airplane) {
+    return new Aircraft('airplane', make, model, year);
+  } else if (type === helicopter) {
+    return new Aircraft('helicopter', make, model, year);
+  } else {
+    return new Railvehicle('train', make, model, year);
+  }
+}
+
+//With Design
+ 
+const audiAllRoad = VehicleFactory('car', 'Audi', 'A6 Allroad', '2020');
+
+return audiAllRoad;
+
+module.exports = VehicleFactory;

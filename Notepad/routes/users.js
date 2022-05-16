@@ -3,6 +3,7 @@ const router = express.Router();
 const apiController = require("../controllers/users");
 const jwt = require("jsonwebtoken");
 const cache = require("../cache.js");
+const { validate, ValidationError, Joi } = require("express-validation");
 
 router.post("/create", apiController.createNote);
 

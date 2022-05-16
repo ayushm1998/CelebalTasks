@@ -87,19 +87,23 @@ var updateNotes = async (req, res) => {
       console.log(req.originalUrl);
       if (err == null) {
         console.log("File exists");
-        await fs.appendFile(`${path[0].path}`, `${data}` + "\n", async function (err) {
-          //    console.log((caches.has(key)))
-          //    caches.set(key,data)
-          //  console.log(typeof(`${path[0].updateCount}`))
+        await fs.appendFile(
+          `${path[0].path}`,
+          `${data}` + "\n",
+          async function (err) {
+            //    console.log((caches.has(key)))
+            //    caches.set(key,data)
+            //  console.log(typeof(`${path[0].updateCount}`))
 
-          await Notes.update(
-            { updateCount: parseInt(`${path[0].updateCount}`) + 1 },
-            {
-              where: { name: fname },
-            }
-          );
-          res.status(201).json("Updated Successfully");
-        });
+            await Notes.update(
+              { updateCount: parseInt(`${path[0].updateCount}`) + 1 },
+              {
+                where: { name: fname },
+              }
+            );
+            res.status(201).json("Updated Successfully");
+          }
+        );
       } else if (err.code === "ENOENT") {
         res.status(400).send({
           message: "File not found",

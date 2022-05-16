@@ -41,4 +41,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+var { getData } = require('./controllers/axios.js')
+var url = require('./url');
+
+
+
 module.exports = app ;
